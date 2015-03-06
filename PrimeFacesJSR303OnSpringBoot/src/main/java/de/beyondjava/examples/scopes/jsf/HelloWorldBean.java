@@ -19,8 +19,11 @@ package de.beyondjava.examples.scopes.jsf;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 
-@ManagedBean
-@ViewScoped
+import org.springframework.context.annotation.Scope;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+@Scope("view")
 public class HelloWorldBean {
 	public String getHello() {
 		return "Hello from PrimeFaces and Spring Boot!";

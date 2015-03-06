@@ -23,8 +23,11 @@ import javax.faces.context.FacesContext;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 
-@ManagedBean
-@ViewScoped
+import org.springframework.context.annotation.Scope;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+@Scope("view")
 public class SmallNumberBean {
 	@Max(10)
 	@Min(50)
