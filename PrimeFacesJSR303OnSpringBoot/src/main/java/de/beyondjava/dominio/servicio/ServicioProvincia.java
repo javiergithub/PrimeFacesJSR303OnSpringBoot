@@ -1,0 +1,1 @@
+package de.beyondjava.dominio.servicio;import de.beyondjava.dominio.modelo.Provincia;import org.springframework.data.domain.*;import org.springframework.data.repository.*;public interface ServicioProvincia {	public void guardar(Provincia provincia);	public Page<Provincia> findAll(Pageable pageable);	public Provincia findByNombreAllIgnoringCase(String nombre);}

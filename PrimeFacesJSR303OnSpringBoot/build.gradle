@@ -23,6 +23,7 @@ repositories {
 dependencies {
     compile("org.springframework.boot:spring-boot-starter-web")
     compile("org.springframework.boot:spring-boot-starter-aop")
+    compile("org.springframework.boot:spring-boot-starter-data-jpa")
     
     compile group: "org.primefaces", name: "primefaces", version: "5.0"
     compile group: "com.sun.faces", name: "jsf-api", version: "2.2.7"
@@ -35,6 +36,7 @@ dependencies {
     compile "org.apache.tomcat.embed:tomcat-embed-jasper:7.0.54"
     compile group: "org.hibernate", name: "hibernate-validator"
     compile group: "javax.validation", name: "validation-api", version: '1.1.0.Final'
+    compile group: "org.hsqldb", name: "hsqldb"
   
     testCompile("junit:junit")
 }

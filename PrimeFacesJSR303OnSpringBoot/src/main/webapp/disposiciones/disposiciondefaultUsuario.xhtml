@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+          "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:sec="http://www.springframework.org/security/tags"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<f:view>
+	<h:head>
+		<title><ui:insert name="title">Mesa de Ayuda</ui:insert></title>
+		<link href='http://fonts.googleapis.com/css?family=Cinzel+Decorative' rel='stylesheet' type='text/css'/>
+		<link rel="stylesheet"
+			href="${request.contextPath}/resources/estilos/sima.css"
+			type="text/css" media="screen" />
+		<h:outputScript library="js" name="calendar_es.js" />
+		<ui:insert name="headIncludes" />
+		#{sesionBack.cargarTema}
+		</h:head>
+
+	<body>
+
+
+		<p:layout fullPage="true" id="dispo">
+			<p:layoutUnit position="north" size="90">
+				<div id="header"
+					style="width: 100%; font-size: 36px; line-height: 68px; background-color: navy; color: white">
+				</div>
+			</p:layoutUnit>
+			<p:layoutUnit position="south" size="20">
+				<div id="footer"
+					style="background-color: navy; width: 100%; color: white">
+					<ui:insert name="footer">
+						<ui:include src="pieSima.xhtml" />
+					</ui:insert>
+				</div>
+			</p:layoutUnit>
+			<p:layoutUnit position="west" size="0">
+			</p:layoutUnit>
+			<p:layoutUnit position="east" size="0">
+			</p:layoutUnit>
+			<p:layoutUnit position="center">
+				<div id="content">
+					<ui:insert name="metadata" />
+					<ui:insert name="content">
+						<div style="background-color: navy; width: 100%; color: white"
+							id="contentDiv">
+							<ui:include src="contenidoSima.xhtml" />
+						</div>
+					</ui:insert>
+				</div>
+			</p:layoutUnit>
+		</p:layout>
+
+
+
+
+	</body>
+</f:view>
+</html>

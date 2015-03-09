@@ -1,0 +1,178 @@
+@CHARSET "UTF-8";
+
+.ui-menuitem-link {
+	max-width: 180px;
+}
+
+.vencido .ui-inputfield {
+	background: #ffffff;
+	-moz-box-shadow: none;
+	-webkit-box-shadow: none;
+	box-shadow: none;
+	color: red;
+}
+
+#header {
+	width: 99%;
+	height: 120px;
+	font-size: 3em;
+	background-color: white;
+	color: black;
+	position:relative;
+	margin: 0 auto;
+	text-align: center;
+}
+
+#footer {
+	background-color: navy;
+	width: 100%;
+	color: white;
+}
+
+#header img {
+	float: left;
+	width: 160px;
+	height: 80px;
+	margin-top: 15px;
+}
+
+#header .deporteLogo {
+	width: 80px;
+	height: 80px;
+	margin-right: 20%;
+}
+
+
+#header .navLogin2Grid {
+	float: right;
+	margin-top: -15px;
+	margin-right: 40px;
+}
+
+#header .navLoginGrid {
+	float: right;
+	font-size: 0.4em;
+	margin-right: -0px;
+	padding-top:81px;
+}
+
+#content {
+	clear: both;
+	position:relative;
+	font-size: 8pt;
+
+}
+
+#content #contentDiv {
+	background-color: navy;
+	margin: 0 auto;
+	color: white;
+	position: absolute;
+}
+.ui-state-disabled { color: red; }
+.navLoginGroup {
+	position:absolute;
+	z-index: 1000;
+	margin-left: 82%;
+}
+
+.usuarioModel{
+	position: absolute;
+	width: 100%;
+    border: none !important;
+    z-index: 0;
+}
+
+
+.centered {
+	height: 100px;
+	bottom: 0;
+	margin: 0 auto;
+	border: black solid 6px !important;
+	
+}
+
+.centered2 {
+	height: 120px;
+	bottom: 0;
+	margin: 0 auto;
+	width: 60%;
+}
+
+
+.mensajes {
+	color: red;
+}
+.mensaje {
+	color: blue;
+    font-weight: bold;
+}
+
+.ui-state-disabled { color: red; }
+
+.clave-natural-nombre-larga {
+	width: 16em;
+}
+
+
+.descripcion-larga {
+	width: 30em;
+}
+
+.email-larga {
+	width: 16em;
+}
+
+.clave-natural-nombre-corta {
+	width: 10em;
+}
+
+.descripcion-corta {
+	width: 20em;
+}
+
+.email-corta {
+	width: 10em;
+}
+
+.hora-maxima{
+	width: 4em;
+}
+.minuto-maximo{
+	width: 2em;
+}
+.intervalo-notificacion{
+	width: 6em;
+}
+
+.password-cantidad-mayusculas{
+	width: 2em;
+}
+
+.password-cantidad-minusculas{
+	width: 2em;
+}
+
+.password-cantidad-numeros{
+	width: 2em;
+}
+
+.dias-expiracion{
+	width: 4em;
+}
+
+.password-historicidad{
+	width: 2em;
+}
+
+.password-longitud-minima{
+	width: 2em;
+}
+
+.password-tamanio{
+	width: 2em;
+}
+
+.password-campo-tamanio{
+	width: 15em;
+}

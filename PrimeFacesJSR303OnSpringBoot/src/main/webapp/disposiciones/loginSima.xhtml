@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:sec="http://www.springframework.org/security/tags"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:panelGroup style="width: 60%; float: right;">
+	<h:form id="usuarioForm">
+		<h:panelGroup class="alt bottom"
+			style="width:60%;float:right;font-size: 11px">
+			<sec:authorize
+				ifAnyGranted="ROLE_ADMIN, ROLE_SUPERVISOR, ROLE_MESA_DE_AYUDA, ROLE_OPERADOR">
+
+				<h:panelGrid columns="5">
+					<h:panelGroup>
+						<h:outputText value="Temas:" />
+						<p:themeSwitcher value="#{sesionBack.tema}" id="temas"
+							effect="fade">
+							<f:selectItem itemLabel="Seleccione una:" itemValue="" />
+							<f:selectItems value="#{aplicacionBack.themes}" />
+							<p:ajax listener="#{sesionBack.verificarTemaUsuario}"
+								update="permanente"></p:ajax>
+						</p:themeSwitcher>
+						<h:outputLabel value="Permanente: " for="permanente" />
+						<p:selectBooleanCheckbox id="permanente"
+							value="#{sesionBack.permanente}">
+							<p:ajax listener="#{sesionBack.guardarTema}" update="temas" />
+						</p:selectBooleanCheckbox>
+					</h:panelGroup>
+					<h:outputLabel value="Bienvenido: " />
+					<h:link style="color: white"
+						value="#{request.userPrincipal.principal.empleado.apellido} #{request.userPrincipal.principal.empleado.nombre}"
+						outcome="/vistas/usuario/password/password.jsf?faces-redirect=true"
+						includeViewParams="true">
+						<f:param name="usuarioId"
+							value="#{request.userPrincipal.principal.id}" />
+						<f:param name="accion" value="Cambia" />
+					</h:link>
+					<a href="${request.contextPath}/j_spring_security_logout"
+						style="color: white">Logout</a>
+				</h:panelGrid>
+			</sec:authorize>
+			<ui:insert name="login">
+				<sec:authorize
+					ifNotGranted="ROLE_ADMIN, ROLE_SUPERVISOR, ROLE_MESA_DE_AYUDA, ROLE_OPERADOR">
+
+					<a href="${request.contextPath}/app/login.faces}">Login</a>
+				</sec:authorize>
+			</ui:insert>
+		</h:panelGroup>
+	</h:form>
+</h:panelGroup>
+</html>

@@ -35,7 +35,7 @@ import com.sun.faces.config.ConfigureListener;
 import scope.ViewScope;
 
 @Configuration
-@ComponentScan(basePackages = { "de.beyondjava" })
+@ComponentScan(basePackages = { "" })
 @EnableAutoConfiguration
 public class Main {
 	public static void main(String[] args) {
