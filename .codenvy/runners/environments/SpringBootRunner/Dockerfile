@@ -4,4 +4,4 @@ ENV CODENVY_APP_PORT_8080_HTTP 8080
 ADD $app$ /home/user/$app$
 WORKDIR /home/user/
 RUN unzip $app$ >/dev/null
-CMD java -jar application.jar 2>&1 run
+CMD java -jar PrimeFacesOnSpringBoot-1.0.war 2>&1 run

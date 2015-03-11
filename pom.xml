@@ -6,7 +6,7 @@
 	<groupId>de.beyondjava</groupId>
 	<artifactId>PrimeFacesOnSpringBoot</artifactId>
 	<version>1.0</version>
-	<packaging>jar</packaging>
+	<packaging>war</packaging>
 	<inceptionYear>2014</inceptionYear>
 	<licenses>
 		<license>
