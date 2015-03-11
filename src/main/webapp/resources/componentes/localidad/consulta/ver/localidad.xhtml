@@ -1,0 +1,52 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:composite="http://java.sun.com/jsf/composite">
+<!-- INTERFACE -->
+<composite:interface>
+	<composite:attribute name="deshabilitado" required="true" />
+	<composite:attribute name="localidadBotonTexto" default="Guardar" />
+	<composite:attribute name="localidadAccion"
+		method-signature="java.lang.String action()" />
+	<composite:attribute name="localidadBack" />
+	<composite:editableValueHolder name="nombreVal"
+		targets="localidadForm:nombre" />
+</composite:interface>
+
+<!-- IMPLEMENTATION -->
+<composite:implementation>
+	<h:form id="localidadForm" prependId="false">
+
+		<h:messages id="msgL" showDetail="true" showSummary="false" />
+		<h:panelGrid columns="3">
+
+			<f:facet name="header">
+				<h:outputText id="IdCatLocal1" value="Localidad" />
+			</f:facet>
+			<h:panelGroup>
+				<h:outputLabel for="localidad" value="localidad" />
+				<h:panelGroup>
+					<h:inputText id="localidad"
+						value="#{cc.attrs.localidadBack.localidad.nombre}"
+						readonly="#{cc.attrs.deshabilitado==true}"
+						required="#{!cc.attrs.deshabilitado==true}" />
+				</h:panelGroup>
+			</h:panelGroup>
+					<h:inputHidden id="accion"
+						value="#{cc.attrs.localidadBack.localidad.id}" />
+			
+
+		</h:panelGrid>
+		<p>
+			<h:commandButton id="localidadButton"
+				value="#{cc.attrs.localidadBotonTexto}"
+				action="#{cc.attrs.localidadAccion}" />
+		</p>
+	</h:form>
+</composite:implementation>
+</html>

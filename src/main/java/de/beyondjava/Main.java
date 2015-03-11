@@ -14,7 +14,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package de.beyondjava.main;
+package de.beyondjava;
 
 import java.util.HashMap;
 
@@ -32,10 +32,10 @@ import org.springframework.context.annotation.Configuration;
 
 import com.sun.faces.config.ConfigureListener;
 
-import scope.ViewScope;
+import de.beyondjava.scope.ViewScope;
 
 @Configuration
-@ComponentScan(basePackages = { "" })
+@ComponentScan
 @EnableAutoConfiguration
 public class Main {
 	public static void main(String[] args) {

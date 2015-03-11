@@ -1,4 +1,4 @@
-package scope;
+package de.beyondjava.scope;
 
 import java.util.Map;
 import javax.faces.context.FacesContext;

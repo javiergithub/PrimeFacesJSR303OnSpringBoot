@@ -1,0 +1,113 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:composite="http://java.sun.com/jsf/composite">
+<!-- INTERFACE -->
+<composite:interface>
+	<composite:attribute name="accion" required="false" />
+</composite:interface>
+
+<!-- IMPLEMENTATION -->
+<composite:implementation>
+	<h:panelGrid columns="3">
+
+		<h:panelGroup>
+			<h:outputLabel for="nombre" value="nombre" />
+			<h:panelGroup>
+				<h:inputText id="nombre"
+					value="#{localidadTablaBack.criterioBusqueda.criterioBusquedaLocalidad.localidad}" />
+			</h:panelGroup>
+		</h:panelGroup>
+
+
+	</h:panelGrid>
+	<p:commandButton id="buscarBoton"
+		actionListener="#{localidadTablaBack.obtenerLocalidad}"
+		ajax="true" update="mainPanel mainPanel2" value="Buscar">
+		<f:setPropertyActionListener
+			target="#{localidadTablaBack.criterioBusqueda.pagina}" value="1" />
+		<f:setPropertyActionListener
+			target="#{localidadTablaBack.mostrarTabla}" value="true" />
+		<f:setPropertyActionListener
+			target="#{localidadTablaBack.criterioBusqueda.accion}"
+			value="#{cc.attrs.accion}" />
+	</p:commandButton>
+	<p:commandButton value="Volver"
+		action="/vistas/home.jsf?faces-redirect=true" immediate="true"
+		ajax="false" />
+
+	<h:panelGroup id="bodygrEst1">
+
+		<h:panelGrid id="mainPanel" width="100%">
+			<p:dataTable var="row"
+				rendered="#{localidadTablaBack.mostrarTabla==true}"
+				value="#{localidadTablaBack.modeloPerezoso}"
+				rows="#{localidadTablaBack.criterioBusqueda.tamanioPagina}"
+				paginator="true"
+				paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+				rowsPerPageTemplate="5,9,12,15"
+				page="#{localidadTablaBack.criterioBusqueda.pagina}"
+				lazy="true" id="pnlResult">
+				<p:column>
+					<f:facet name="header">
+						<h:outputLabel value="id" />
+					</f:facet>
+					<h:outputText value="#{row.id}" escape="false" />
+				</p:column>
+				<p:column>
+					<f:facet name="header">
+						<h:outputLabel value="Localidad" />
+					</f:facet>
+					<h:outputText value="#{row.localidad}" escape="false" />
+
+				</p:column>
+				<p:column
+					rendered="#{localidadTablaBack.criterioBusqueda.accion!='Ver'}">
+					<f:facet name="header">
+						<h:outputLabel value="Accion" />
+					</f:facet>
+					<h:button
+						value="#{localidadTablaBack.criterioBusqueda.accion}"
+						outcome="/vistas/configura/localidad/localidad.xhtml?faces-redirect=true"
+						includeViewParams="true">
+						<f:param name="localidadId" value="#{row.id}" />
+						<f:param name="accion"
+							value="#{localidadTablaBack.criterioBusqueda.accion}" />
+					</h:button>
+				</p:column>
+				<p:column
+					rendered="#{localidadTablaBack.criterioBusqueda.accion=='Ver'}">
+					<f:facet name="header">
+						<h:outputLabel value="Accion" />
+					</f:facet>
+					<h:button
+						value="#{localidadTablaBack.criterioBusqueda.accion}"
+						outcome="/vistas/configura/localidad/consulta/ver/localidad.jsf?faces-redirect=true"
+						includeViewParams="true">
+						<f:param name="localidadId" value="#{row.id}" />
+						<f:param name="accion"
+							value="#{localidadTablaBack.criterioBusqueda.accion}" />
+					</h:button>
+				</p:column>
+
+			</p:dataTable>
+		</h:panelGrid>
+		<h:panelGrid id="mainPanel2" width="100%">
+			<h:panelGroup id="bodygrEst2"
+				rendered="#{localidadTablaBack.criterioBusqueda.sumarizado==true}">
+				<h:outputLabel value="Total:  " />
+				<h:outputText
+					value="#{localidadTablaBack.modeloPerezoso.rowCount}"
+					escape="false" />
+			</h:panelGroup>
+		</h:panelGrid>
+
+	</h:panelGroup>
+
+</composite:implementation>
+</html>

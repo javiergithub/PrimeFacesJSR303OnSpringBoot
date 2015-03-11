@@ -1,31 +1,34 @@
-package de.beyondjava;
+package de.beyondjava.dominio.servicio;
 
-import de.beyondjava.dominio.modelo.Provincia;
-import de.beyondjava.dominio.servicio.ServicioProvincia;
-import de.beyondjava.dominio.servicio.impl.ServicioProvinciaImpl;
+import static org.junit.Assert.assertEquals;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
-import de.beyondjava.main.Main;
+import org.hamcrest.core.IsEqual;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.*;
 import org.springframework.test.*;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import de.beyondjava.dominio.dao.repository.ProvinciaRepository;
+
+import de.beyondjava.Main;
+import de.beyondjava.dominio.modelo.Provincia;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringApplicationConfiguration(classes = Main.class)
 public class ServicioProvinciaTest {
 
 	@Autowired
-	@Qualifier("provinciaRepository")
-	ProvinciaRepository provinciaRepository;
+	ServicioProvincia servicioProvincia;
 	
 	
 	@Test
 	public void findsFirstPageOfCities() {
-//		Page<City> cities = this.repository.findAll(new PageRequest(0, 10));
-//		assertThat(cities.getTotalElements(), is(greaterThan(20L)));
+		Provincia provincia = new Provincia("Catamarca");
+		servicioProvincia.guardar(provincia);
+		Provincia provincia2 = null;
+		provincia2 =servicioProvincia.findByNombreAllIgnoringCase("Catamarca");
+		assertEquals(provincia, provincia2);
 	}
 	
 }

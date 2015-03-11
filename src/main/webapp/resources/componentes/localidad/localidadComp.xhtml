@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:composite="http://java.sun.com/jsf/composite">
+<!-- INTERFACE -->
+<composite:interface>
+	<composite:attribute name="deshabilitado" required="true" />
+	<composite:attribute name="deshabilitadoEdicion" required="false" />
+	<composite:attribute name="localidad" />
+	<composite:attribute name="localidades" />
+</composite:interface>
+
+<!-- IMPLEMENTATION -->
+<composite:implementation>
+	<h:panelGroup>
+		<h:outputLabel styleClass="texto" for="localidad" value="Localidad: " />
+		<p:selectOneMenu id="localidad" value="#{cc.attrs.localidad}"
+			disabled="#{cc.attrs.deshabilitado==true  or cc.attrs.deshabilitadoEdicion==true}"
+			required="#{!cc.attrs.deshabilitado==true}"
+			converter="localidadConverter" var="l"
+			style="margin-bottom:-8px">
+			<f:selectItem  value="#{aplicacionBack.seleccionVacia}"/>
+			<f:selectItems value="#{cc.attrs.localidades}" var="localidad"
+				itemLabel="#{localidad.localidad}" itemValue="#{localidad}" />
+			<p:column>
+					#{l.localidad}
+				</p:column>
+			<f:ajax execute="@this" />
+		</p:selectOneMenu>
+		<p:message id="localidadB" for="localidad" />
+	</h:panelGroup>
+</composite:implementation>
+</html>

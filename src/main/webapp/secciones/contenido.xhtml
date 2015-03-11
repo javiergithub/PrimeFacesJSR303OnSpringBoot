@@ -7,6 +7,8 @@
 	xmlns:home="http://java.sun.com/jsf/composite/componentes/home">
 
 	<h:panelGroup id="body">
+		<prime:menubar model="#{sessionBean.model}" autoDisplay="true">
+		</prime:menubar>
 		<home:home	 
 		    homeBack="#{smallNumberBean}"
 			id="homeComp"/>
