@@ -28,12 +28,12 @@ public class SecureTomcatConfiguration {
 			throws FileNotFoundException {
 		TomcatEmbeddedServletContainerFactory f =
 				new TomcatEmbeddedServletContainerFactory();
-		f.addAdditionalTomcatConnectors(createSslConnector());
+//		f.addAdditionalTomcatConnectors(createSslConnector());
 		
 		return f;
 	}
 
-	private Connector createSslConnector() throws FileNotFoundException {
+/*	private Connector createSslConnector() throws FileNotFoundException {
 		Connector connector = new Connector(Http11NioProtocol.class.getName());
 		Http11NioProtocol protocol =
 				(Http11NioProtocol)connector.getProtocolHandler();
@@ -48,6 +48,6 @@ public class SecureTomcatConfiguration {
 			.getAbsolutePath());
 		protocol.setSslProtocol("TLS");
 		return connector;
-	}
+	}*/
 
 }

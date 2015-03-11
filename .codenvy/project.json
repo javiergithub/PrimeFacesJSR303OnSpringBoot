@@ -1,0 +1,1 @@
+{"mixinTypes":["contribution"],"runners":{"configs":{"project://SpringBootRunner":{"ram":512,"variables":{},"options":{}}},"default":"project://SpringBootRunner"},"builders":{"configs":{},"default":"maven"},"description":"","type":"maven","attributes":{"languageVersion":["1.6"],"language":["java"],"contribute_branch":["master"],"contribute_mode":["contribute"]}}
