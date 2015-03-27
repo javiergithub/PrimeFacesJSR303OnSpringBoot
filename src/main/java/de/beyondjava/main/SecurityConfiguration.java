@@ -14,8 +14,8 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 
-@Configuration
-@EnableGlobalMethodSecurity(securedEnabled = true)
+//@Configuration
+//@EnableGlobalMethodSecurity(securedEnabled = true)
 public class SecurityConfiguration {//extends WebSecurityConfigurerAdapter {
 
 	private static final Logger log =

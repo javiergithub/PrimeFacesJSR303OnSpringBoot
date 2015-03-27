@@ -38,7 +38,7 @@ import de.beyondjava.scope.ViewScope;
 
 @Configuration
 @ComponentScan
-@EnableAutoConfiguration(exclude={WebMvcAutoConfiguration.class,DispatcherServletAutoConfiguration.class})
+@EnableAutoConfiguration
 public class Main {
 	public static void main(String[] args) {
 		ConfigurableApplicationContext context = SpringApplication
